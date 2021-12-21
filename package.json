@@ -1,0 +1,24 @@
+{
+  "name": "stcroix-publishing",
+  "version": "0.0.1",
+  "description": "A monorepo for St. Croix Publishing's custom tools",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm recursive run dev --filter \"@stcroixpub/*\"",
+    "clean": "pnpm recursive exec -- rm -rf node_modules; rm package-lock.json; rm pnpm-lock.yaml;",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Membrane-Consulting/stcroix-publishing.git"
+  },
+  "author": "Jacob Stordahl",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/Membrane-Consulting/stcroix-publishing/issues"
+  },
+  "homepage": "https://github.com/Membrane-Consulting/stcroix-publishing#readme",
+  "devDependencies": {
+    "concurrently": "^6.5.1"
+  }
+}

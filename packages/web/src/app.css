@@ -1,0 +1,184 @@
+/* Write your global styles here, in PostCSS syntax */
+
+
+/* 
+  Eric Meyer's CSS Reset
+  http://meyerweb.com/eric/tools/css/reset/ 
+  v2.0 | 20110126
+  License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+  End Eric Meyer's CSS Reset
+*/
+
+/* 
+	Tailwind stuff
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+	End Tailwind stuff
+*/
+
+/*
+  Start Custom Styles
+*/
+
+/* Globals */
+body {
+	font-size: 12px;
+
+	/* Custom Properties */
+	/* Colors */
+	--white: #ffffff;
+	--black: #000000;
+	--blue: blue;
+	--green: green;
+	/* Typography */
+	--heading-family: ;
+	--heading-weight: ;
+	--heading-height: ;
+	--heading-spacing: ;
+	--body-family: ;
+	--body-weight: ;
+	--body-height: ;
+	--body-spacing: ;
+	/* Box Properties */
+	--radius: 3px;
+	--shadow-color: #000000;
+	--corner-shadow: 5px 5px 15px var(--shadow-color);
+	--bottom-shadow: ;
+	--top-shadow: ;
+	/* Spacing */
+	--mb: 30px;
+	--mt: 10px;
+	--p: 1.2rem;
+}
