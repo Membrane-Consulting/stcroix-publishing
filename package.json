@@ -17,8 +17,5 @@
   "bugs": {
     "url": "https://github.com/Membrane-Consulting/stcroix-publishing/issues"
   },
-  "homepage": "https://github.com/Membrane-Consulting/stcroix-publishing#readme",
-  "devDependencies": {
-    "turbo": "^1.0.28"
-  }
+  "homepage": "https://github.com/Membrane-Consulting/stcroix-publishing#readme"
 }

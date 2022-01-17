@@ -14,6 +14,7 @@
 		"@portabletext/svelte": "^0.2.0",
 		"@sanity/types": "^2.23.2",
 		"@supabase/supabase-js": "^1.29.0",
+		"@sveltejs/adapter-vercel": "^1.0.0-next.36",
 		"@sveltejs/kit": "next",
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
 		"@typescript-eslint/parser": "^4.33.0",
