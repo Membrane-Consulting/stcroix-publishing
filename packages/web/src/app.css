@@ -1,6 +1,4 @@
 /* Write your global styles here, in PostCSS syntax */
-
-
 /* 
   Eric Meyer's CSS Reset
   http://meyerweb.com/eric/tools/css/reset/ 
@@ -112,7 +110,6 @@ section {
 body {
 	line-height: 1;
 }
-ol,
 ul {
 	list-style: none;
 }
@@ -152,27 +149,62 @@ table {
   Start Custom Styles
 */
 
+@font-face {
+	font-family: 'Cabin';
+	src: url('/fonts/Cabin-VariableFont.ttf') format('truetype');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cabin';
+	src: url('/fonts/Cabin-Italic-VariableFont.ttf') format('truetype');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Libre Baskerville';
+	src: url('/fonts/LibreBaskerville-Regular.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: 'Libre Baskerville';
+	src: url('/fonts/LibreBaskerville-Italic.ttf') format('truetype');
+	font-style: italic;
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: 'Libre Baskerville';
+	src: url('/fonts/LibreBaskerville-Bold.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 500;
+}
+
 /* Globals */
 body {
-	font-size: 12px;
-
 	/* Custom Properties */
 	/* Colors */
-	--white: #ffffff;
+	--white: #F8F5EC;
 	--black: #000000;
-	--blue: blue;
-	--green: green;
+	--grey-500: #3b3744;
+	--grey-300: #a8a8a5;
+	--grey-100: #e3e1db;
+	--blue: #1f2b70;
+	--green: #214729;
 	/* Typography */
-	--heading-family: ;
-	--heading-weight: ;
+	--heading-family: 'Cabin', sans-serif;
+	--heading-weight: 700;
 	--heading-height: ;
 	--heading-spacing: ;
-	--body-family: ;
-	--body-weight: ;
+	--body-family: 'Libre Baskerville', serif;
+	--body-weight: 100;
 	--body-height: ;
 	--body-spacing: ;
 	/* Box Properties */
-	--radius: 3px;
+	--radius: 5px;
+	--shadow: 0 3px 19px #00000025;
 	--shadow-color: #000000;
 	--corner-shadow: 5px 5px 15px var(--shadow-color);
 	--bottom-shadow: ;
@@ -181,4 +213,325 @@ body {
 	--mb: 30px;
 	--mt: 10px;
 	--p: 1.2rem;
+
+
+	font-size: 12px;
+	background-color: var(--white);
+}
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--heading-family);
+	margin-bottom: 1rem;
+}
+h1 {
+	font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+	margin-bottom: 5px;
+	line-height: 1.2;
+}
+h2 {
+	font-size: clamp(1.75rem, 1.2vw, 2rem);
+	line-height: 1.2;
+	margin-bottom: 2px;
+}
+h3 {
+	font-size: clamp(1.25rem, 1vw, 1.75rem);
+	margin-bottom: 6px;
+}
+p {
+	font-size: clamp(1rem, 1vw, 1.3rem);
+	font-family: var(--body-family);
+	font-weight: 100;
+	margin-bottom: 20px;
+}
+a {
+	font-size: clamp(1rem, 1vw, 1.3rem);
+	font-family: var(--body-family);
+	font-weight: 100;
+}
+ul, ol {
+	font-size: 1.2rem;
+	font-family: var(--body-family);
+	font-weight: 100;
+	padding-left: 1rem;
+	margin: 1.3rem 0;
+}
+ul { 
+	list-style: disc;
+}
+ol {
+	list-style: unset;
+}
+li {
+	margin-bottom: 3px;
+}
+
+/* Form Elements */
+input, select, textarea {
+	border-radius: var(--radius);
+	border: 2px solid var(--grey-300);
+	background-color: var(--white);
+	display: block;
+	width: calc(100% - 10px);
+	font-family: var(--heading-family);
+	font-size: clamp(1rem, 4vw, 1.2rem);
+	width: 100%;
+	padding: 5px 10px;
+	height: 42px;
+}
+input:hover {
+	cursor: pointer;
+}
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 2px solid var(--blue);
+	outline-offset: 2px;
+}
+label {
+	font-family: var(--heading-family);
+	font-size: 1rem;
+	margin-bottom: 5px;
+	max-height: 24px;
+	display: block;
+	text-align: right;
+}
+input[type='submit'] {
+	background-color: var(--blue);
+	color: var(--white);
+	border: none;
+	box-shadow: 0 3px 19px #00000025;
+	margin-bottom: 5px;
+}
+input::placeholder, textarea::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: var(--grey-500);
+	opacity: 1; /* Firefox */
+	font-style: italic;
+}
+textarea {
+	resize: none;
+}
+.modal-form textarea {
+	height: 175px;
+}
+
+/* Input Icons */
+input[type="email"], 
+input[type="password"],
+input[name="name"],
+input[name="institution"],
+select[name="role"],
+textarea {
+	padding-left: 55px;
+}
+input[type="email"] ~ span:before {
+	display: block;
+	content: url('/images/email-icon.svg');
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 42px;
+	height: 42px;
+	background-size: 42px 42px;
+	border-right: 2px solid var(--grey-300);
+	left: 2px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+input[type="password"] ~ span:before {
+	display: block;
+	content: url('/images/password-icon.svg');
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 42px;
+	height: 42px;
+	background-size: 42px 42px;
+	border-right: 2px solid var(--grey-300);
+	left: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+input[name="name"] ~ span:before {
+	display: block;
+	content: url('/images/name-icon.svg');
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 42px;
+	height: 42px;
+	background-size: 42px 42px;
+	border-right: 2px solid var(--grey-300);
+	left: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+input[name="institution"] ~ span:before {
+	display: block;
+	content: url('/images/institution-icon.svg');
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 42px;
+	height: 42px;
+	background-size: 42px 42px;
+	border-right: 2px solid var(--grey-300);
+	left: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+select[name="role"] ~ span:before {
+	display: block;
+	content: url('/images/name-icon.svg');
+	position: absolute;
+	top: 29px;
+	left: 0;
+	width: 42px;
+	height: 42px;
+	background-size: 42px 42px;
+	border-right: 2px solid var(--grey-300);
+	left: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+ textarea ~ span:before {
+	display: block;
+	content: url('/images/message-icon.svg');
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 42px;
+	height: 175px;
+	background-size: 175px 42px;
+	border-right: 2px solid var(--grey-300);
+	left: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+ }
+
+
+
+/* Utility Classes */
+button, .button {
+	background-color: var(--blue);
+	color: var(--white);
+	border: none;
+	box-shadow: 0 3px 19px #00000025;
+	margin-bottom: 5px;
+	font-family: var(--heading-family);
+	font-size: clamp(1rem, 4vw, 1.2rem);
+	padding: 5px 10px;
+	border-radius: var(--radius);
+	text-align: center;
+}
+button:focus, .button:focus {
+	outline: 2px solid var(--blue);
+	outline-offset: 2px;
+}
+.button-block {
+	background-color: var(--blue);
+	color: var(--white);
+	border: none;
+	border-radius: var(--radius);
+	box-shadow: 0 3px 19px #00000025;
+	margin-bottom: 5px;
+	display: block;
+	font-family: var(--heading-family);
+	font-size: clamp(1rem, 4vw, 1.2rem);
+	padding: 5px 10px;
+	text-align: center;
+}
+.container-full {
+	width: clamp(200px, 90vw, 70rem);
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2rem;
+
+}
+.container-tight {
+	width: clamp(200px, 90vw, 50rem);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	margin-bottom: 2rem;
+}
+.container {
+	width: clamp(200px, 90vw, 70rem);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;	
+	margin-bottom: 2rem;
+
+}
+.page-container {
+	margin-bottom: 2rem;
+}
+.input-wrap {
+	position: relative;
+	width: 100%;
+}
+.tiny-text {
+	color: var(--grey-300);
+	font-family: var(--heading-family);
+	font-size: 0.9rem;
+	font-style: italic;
+}
+/* Used in /login, /order, & /request */
+.modal-form {
+	width: clamp(200px, 95%, 450px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 3px 19px #00000025;
+	border-radius: 15px;
+	padding: 1rem 0.5rem;
+	margin: clamp(.5rem, 3vw, 2rem) auto clamp(2rem, 6vw, 6rem);
+}
+	.modal-form form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		width: clamp(200px, 80%, 500px);
+	}
+	.modal-form h1 {
+		font-size: clamp(1rem, 8vw, 1.75rem);
+		font-family: var(--heading-family);
+		margin-top: 5px;
+		margin-bottom: clamp(10px, 4vw, 25px);
+		text-align: center;
+	}
+
+.modal-card {
+	border-radius: 40px;
+	box-shadow: var(--shadow);
+	background-color: var(--white);
+	padding: 2rem;
+	min-height: 150px;
+	margin: 2rem auto;
+}
+
+.modal-card .meta {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 1.2rem;
+	font-style: italic;
+	margin-bottom: 1.2rem;
+	flex-wrap: wrap;
+	border-bottom: 2px solid var(--grey-500);
 }

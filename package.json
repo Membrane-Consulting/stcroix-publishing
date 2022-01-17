@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/Membrane-Consulting/stcroix-publishing#readme",
   "devDependencies": {
-    "concurrently": "^6.5.1"
+    "turbo": "^1.0.28"
   }
 }

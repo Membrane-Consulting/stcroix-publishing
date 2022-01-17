@@ -12,7 +12,19 @@ const config = {
 
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte'
+		target: '#svelte',
+		vite: {
+      plugins: [
+        (function LoadSecrets() {
+          return {
+            name: 'load-secrets',
+            configureServer: async () => {
+              ;(await import('dotenv')).config()
+            }
+          }
+        })()
+      ]
+	  }
 	}
 };
 

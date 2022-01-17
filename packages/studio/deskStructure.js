@@ -7,7 +7,8 @@ import {
   MdMenuBook,
   MdSettings,
   MdOutlineWeb,
-  MdCardMembership
+  MdCardMembership,
+  MdAccountBalance,
 } from 'react-icons/md'
 
 export default () =>
@@ -82,6 +83,20 @@ export default () =>
             )
         )
         .icon(MdMenuBook),
+        S.divider(),
+        S.listItem()
+        .title('Purchase Orders')
+        .child(
+          S.documentTypeList('purchaseOrder')
+            .title('Purchase Orders')
+            .child((documentId) =>
+              S.document()
+                .id('purchaseOrder')
+                .schemaType('purchaseOrder')
+                .documentId(documentId)
+            )
+        )
+        .icon(MdAccountBalance),
         S.divider(),
         S.listItem()
         .title('Settings')

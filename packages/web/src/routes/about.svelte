@@ -1,15 +1,20 @@
 <script lang=ts context=module>
+  import buildUrl from '$lib/utils/buildUrl'
+
+  // Pre-render
+  export const prerender = true;
+
    /**
     * @type {import('@sveltejs/kit').Load}
     */
    export async function load({ page, fetch, session, context }) {
-     const url = `api`;
-     const res = await fetch(url);
+     const query = `*[_type == 'aboutPage'][0]`;
+     const res = await fetch(buildUrl(page, query));
    
    if (res.ok) {
      return {
        props: {
-          propName: await res.json()
+          data: await res.json()
        }
      };
    }
@@ -21,9 +26,27 @@
    }
 </script>
 <script lang=ts>
-
+  import PortableText from '@portabletext/svelte'
+  import ImageBlock from '$lib/components/ImageBlock.svelte'
+  import Seo from '$lib/components/Seo.svelte'
+  
+  export let data
 </script>
 
-<style>
+  <Seo data={data.seo}/>
 
+  <section class="container-tight">
+    <h1>{data.heading}</h1>
+    <PortableText 
+      blocks={data.textContent}
+      serializers={{
+        types: {
+          image: ImageBlock,
+        },
+      }}
+    />
+  </section>
+
+<style>
+  
 </style>

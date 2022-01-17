@@ -1,0 +1,54 @@
+<script lang=ts context=module>
+  import buildUrl from '$lib/utils/buildUrl'
+
+  // Pre-render
+  export const prerender = true;
+
+  /**
+   * @type {import('@sveltejs/kit').Load}
+   */
+  export async function load({ page, fetch, session, context }) {
+    const query = `*[_type == 'settings'][0]{privacyPolicy, _updatedAt}`;
+    const res = await fetch(buildUrl(page, query));
+
+  if (res.ok) {
+    return {
+      props: {
+        data: await res.json()
+      }
+    };
+  }
+
+  return {
+    status: res.status,
+      error: new Error(`Could not load url`)
+    };
+  }
+</script>
+<script lang=ts>
+   import PortableText from '@portabletext/svelte'
+   import ImageBlock from '$lib/components/ImageBlock.svelte'
+   import Link from '$lib/components/Link.svelte'
+
+   export let data
+</script>
+
+<section class="container-tight">
+  <h1>Privacy Policy</h1>
+  <p>Last updated {new Date(data._updatedAt).toDateString()}</p>
+  <PortableText 
+    blocks={data.privacyPolicy}
+    serializers={{
+    types: {
+      image: ImageBlock,
+    },
+    marks: {
+      link: Link
+    }
+  }}
+  />
+</section>
+
+<style>
+
+</style>
