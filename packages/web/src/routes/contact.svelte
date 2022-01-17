@@ -7,9 +7,9 @@
   /**
    * @type {import('@sveltejs/kit').Load}
    */
-  export async function load({ page, fetch, session, context }) {
+  export async function load({ url, fetch, session, context }) {
     const query = `*[_type=='contactPage'][0]`
-    const res = await fetch(buildUrl(page, query));
+    const res = await fetch(buildUrl(url, query));
 
   if (res.ok) {
     return {
@@ -28,7 +28,6 @@
 <script lang=ts>
   import Seo from '$lib/components/Seo.svelte'
   import SanityImage from '$lib/components/SanityImage.svelte'
-  import { urlFor } from '$lib/sanityClient'
   
   export let data
 
@@ -43,7 +42,6 @@
 <Seo data={data.seo}/>
 
 <section class="page-container">
-  <!-- <img src={urlFor(data.image).url()} alt=""> -->
   <SanityImage image={data.image} style={'max-width:500px; border-radius: 40px;'}/>
   <div class="modal-form" style="margin: 0;">
     <h1>{data.formHeading}</h1>

@@ -7,9 +7,9 @@
   /**
    * @type {import('@sveltejs/kit').Load}
    */
-  export async function load({ page, fetch, session, context }) {
+  export async function load({ url, fetch, session, context }) {
     const query = `*[_type == 'settings'][0]{termsOfService, _updatedAt}`;
-    const res = await fetch(buildUrl(page, query));
+    const res = await fetch(buildUrl(url, query));
 
   if (res.ok) {
     return {

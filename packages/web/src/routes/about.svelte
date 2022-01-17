@@ -7,9 +7,9 @@
    /**
     * @type {import('@sveltejs/kit').Load}
     */
-   export async function load({ page, fetch, session, context }) {
+   export async function load({ url, fetch }) {
      const query = `*[_type == 'aboutPage'][0]`;
-     const res = await fetch(buildUrl(page, query));
+     const res = await fetch(buildUrl(url, query));
    
    if (res.ok) {
      return {

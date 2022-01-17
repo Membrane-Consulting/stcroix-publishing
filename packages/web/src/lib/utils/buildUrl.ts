@@ -1,4 +1,4 @@
-export default function (page, query){
+export default function (url, query){
   const safeQuery = query.replace(/&/g, '%26')
-  return `${page.host.includes('localhost') ? 'http' : 'https'}://${page.host}/api/sanity.json?query=${safeQuery}`;
+  return `${url.hostname.includes('localhost') ? 'http' : 'https'}://${url.hostname.includes('localhost') ? `${url.hostname}:3000` : url.hostname}/api/sanity.json?query=${safeQuery}`;
 }

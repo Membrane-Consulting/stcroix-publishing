@@ -7,10 +7,10 @@
   /**
     * @type {import('@sveltejs/kit').Load}
   */
-  export async function load({ page, fetch, session, context }) {
-    const { slug } = page.params
+  export async function load({ url, params, fetch, session, context }) {
+    const { slug } = params
     const query = `*[_type=="textbook" && slug.current=="${slug}"][0]{ title, subtitle, author, pubYear, exerpt, "pdfURL": pdf.asset->url}`;
-    const res = await fetch(buildUrl(page, query));
+    const res = await fetch(buildUrl(url, query));
   
   if (res.ok) {
     return {

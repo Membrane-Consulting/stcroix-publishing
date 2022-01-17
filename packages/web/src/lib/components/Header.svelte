@@ -3,7 +3,7 @@
   import { logout } from '$lib/authClient'
   import { session } from '$app/stores'
 
-  $:active = $page.path
+  $:active = $page.url.pathname
 
   const data = [
     {
@@ -33,7 +33,7 @@
           <a 
             sveltekit:prefetch 
             href={path}
-            class={$page.path.includes(path) ? 'active' : ''}
+            class={$page.url.pathname.includes(path) ? 'active' : ''}
           >
             {name}
           </a> 

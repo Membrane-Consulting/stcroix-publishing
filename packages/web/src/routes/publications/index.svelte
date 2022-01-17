@@ -7,11 +7,11 @@
   /**
     * @type {import('@sveltejs/kit').Load}
   */
-  export async function load({ page, fetch, session, context }) {
+  export async function load({ url, fetch, session, context }) {
     const pageQuery = `*[_type == 'textsPage'][0]`;
-    const res = await fetch(buildUrl(page, pageQuery));
+    const res = await fetch(buildUrl(url, pageQuery));
     const itemsQuery = `*[_type == 'textbook']{title, subtitle, author, pubYear, exerpt, slug}`
-    const items = await fetch(buildUrl(page, itemsQuery))
+    const items = await fetch(buildUrl(url, itemsQuery))
   
   if (res.ok && items.ok) {
     return {
