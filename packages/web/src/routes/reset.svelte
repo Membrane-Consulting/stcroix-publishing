@@ -8,13 +8,22 @@
 <div class="page-container">
   <div class="modal-form">
     <h1>Reset your Password</h1>
-    <form method="POST">
+    <form method="POST" action="/api/updateUser">
+      <!-- <div class="input-wrap">
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Your email address" 
+          required
+        >
+        <span></span>
+      </div> -->
       <div class="input-wrap">
         <input 
           type="password" 
           name="password" 
           placeholder="Your new password" 
-          required 
+          required
           bind:value={password}
         >
         <span></span>

@@ -203,6 +203,7 @@ body {
 	--body-height: ;
 	--body-spacing: ;
 	/* Box Properties */
+	--border: 2px solid var(--blue);
 	--radius: 5px;
 	--shadow: 0 3px 19px #00000025;
 	--shadow-color: #000000;

@@ -5,16 +5,16 @@ import type { MessageContent } from '$lib/types/email'
 
 export async function post({ body }) {
 
-  const {to, from, subject, text, html} = body
-
   await mail.setApiKey(process.env["SENDGRID_API_KEY"])
 
+  const address = import.meta.env.VITE_EMAIL_ADDRESS.toString()
+
   const msg:MessageContent = {
-    to: to,
-    from: from,
-    subject: subject,
-    text: text,
-    html: html,
+    to: address,
+    from: body.get("email"),
+    subject: `New Contact Form Submission from ${body.get("name")} at ${body.get("institution")}`,
+    text: body.get("message"),
+    html: `<p>${body.get("message")}</p>`,
   }
 
   mail
@@ -29,12 +29,17 @@ export async function post({ body }) {
       console.error(error)
       return {
         status: 500,
+        headers: {
+          Location: '/contact?status=error'
+        },
         body: { error },
       }
     })
 
 	return {
-    status: 200,
-    body: {},
+    status: 302,
+    headers: {
+      Location: '/contact?status=success'
+    }
   };
 }

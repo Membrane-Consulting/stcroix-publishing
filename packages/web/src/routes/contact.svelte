@@ -28,15 +28,11 @@
 <script lang=ts>
   import Seo from '$lib/components/Seo.svelte'
   import SanityImage from '$lib/components/SanityImage.svelte'
-  
-  export let data
+  import { page } from '$app/stores'
 
-  let payload = {
-    email: undefined,
-    name: undefined,
-    institution: undefined,
-    message: undefined,
-  }
+  $: status = $page.url.searchParams.get("status")
+
+  export let data
 </script>
 
 <Seo data={data.seo}/>
@@ -45,14 +41,13 @@
   <SanityImage image={data.image} style={'max-width:500px; border-radius: 40px;'}/>
   <div class="modal-form" style="margin: 0;">
     <h1>{data.formHeading}</h1>
-    <form method="POST">
+    <form action="/api/contact" method="POST">
       <div class="input-wrap">
         <input 
           type="email" 
           name="email" 
           placeholder="Your Email" 
           required 
-          bind:value={payload.email}
         >
         <span></span>
       </div>
@@ -62,7 +57,6 @@
           name="name" 
           placeholder="Your Name" 
           required 
-          bind:value={payload.name}
         >
         <span></span>
       </div>
@@ -72,7 +66,6 @@
           name="institution" 
           placeholder="Your Institution" 
           required 
-          bind:value={payload.institution}
         >
         <span></span>
       </div>
@@ -81,15 +74,17 @@
           name="message" 
           placeholder="Your Message" 
           required 
-          bind:value={payload.message}
         />
         <span></span>
       </div>
-      <input 
-          type="submit" 
-          value="Send"
-          on:click|preventDefault={() => {}}
-        >
+      {#if status === 'success'}
+        <input type="submit" value="Message Sent!">
+      {:else if status === 'error'}
+        <input type="submit" value="Error, please try again.">
+      {:else}
+        <input type="submit" value="Send">
+      {/if}
+      
   </div>
 </section>
 
@@ -102,6 +97,9 @@
   }
   h1 {
     max-width:80%;
+  }
+  label {
+    display: none;
   }
 </style>
 

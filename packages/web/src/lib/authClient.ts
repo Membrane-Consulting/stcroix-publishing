@@ -7,13 +7,13 @@ const key = import.meta.env.VITE_SUPABASE_ANON_KEY.toString()
 
 export const client = createClient(url, key, { detectSessionInUrl: false, })
 
-// export const signIn = async ({email, password}) => {
-//    const { session,  error } = await 
-//     client.auth.signIn({ email, password })
+export const login = async (email, password) => {
+   const { session,  error } = await 
+    client.auth.signIn({ email, password })
     
-//     if (error) {alert(error.message)}
-//     else {goto('dashboard')} 
-// }
+    if (error) {alert(error.message)}
+    else {goto('/publications')} 
+}
 
 export const logout = async () => {
   const { error } = await client.auth.signOut().then(() => goto('/'))

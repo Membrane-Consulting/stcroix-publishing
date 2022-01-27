@@ -15,7 +15,7 @@
 		"@sanity/types": "^2.23.2",
 		"@supabase/supabase-js": "^1.29.0",
 		"@sveltejs/adapter-vercel": "^1.0.0-next.36",
-		"@sveltejs/kit": "next",
+		"@sveltejs/kit": "^1.0.0-next.244",
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
 		"@typescript-eslint/parser": "^4.33.0",
 		"autoprefixer": "^10.4.0",
@@ -40,6 +40,7 @@
 		"@sanity/client": "^2.23.2",
 		"@sanity/image-url": "^1.0.1",
 		"@sendgrid/mail": "^7.6.0",
-		"dotenv": "^10.0.0"
+		"dotenv": "^10.0.0",
+		"yup": "^0.32.11"
 	}
 }

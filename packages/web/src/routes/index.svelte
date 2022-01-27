@@ -23,6 +23,7 @@
   }
 </script>
 <script lang=ts>
+  import { session } from '$app/stores'
   import PortableText from '@portabletext/svelte'
   import { siteTitle } from '$lib/utils/siteTitle'
   import SanityImage from '$lib/components/SanityImage.svelte'
@@ -36,7 +37,7 @@
 </svelte:head>
 
 <section class="container">
-  <div id="hero-img">
+  <div class="hero-img">
     <SanityImage image={data.heroImage}/>
   </div>
   <article class="modal-card">
@@ -59,7 +60,8 @@
 </section>
 
 <section class="container">
-  <div id="hero-img">
+  <h2 class="featured-title">Featured Text</h2>
+  <div class="hero-img">
     <SanityImage image={data.featuredImage}/>
   </div>
   <article class="modal-card">
@@ -70,6 +72,57 @@
         <span>{data.featuredText.pubYear}</span>
       </div>
       <PortableText blocks={data.featuredText.exerpt}/>
-      <a href='/publications' class="button-block">Browse Texts</a>
+      {#if $session?.user}
+        <a href='/publications' class="button-block">Browse Texts</a>
+      {/if}
     </article>
 </section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr 400px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "img img _" "__ card card";
+  }
+
+  section:last-of-type {
+    grid-template-areas: "_ img img" "card card __";
+  }
+
+  .featured-title {
+    grid-area: _; 
+    font-style: italic; 
+    font-size: 2.4rem;
+    margin: 2rem;
+    justify-self: center;
+  }
+
+  .hero-img {
+    grid-area: img;
+    border-radius: 40px;
+    max-height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  article {
+    grid-area: card;
+    margin-top: -40%;
+  }
+
+  .key-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .25fr .25fr;
+    gap: 1rem;
+  }
+  .key-points > span {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 1rem;
+  }
+</style>

@@ -31,8 +31,6 @@
    import Link from '$lib/components/Link.svelte'
 
    export let data
-
-   $:(console.log(data))
 </script>
 
 <section class="container-tight">

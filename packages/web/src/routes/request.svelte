@@ -1,30 +1,18 @@
 <script lang=ts>
-  type RequestPayload = {
-    name: string
-    email: string
-    institution: string
-    role: ''
-  }
-
-  let payload:RequestPayload = {
-    name: undefined,
-    email: undefined,
-    institution: undefined,
-    role: undefined,
-  }
+  import { page } from '$app/stores'
+  $: status = $page.url.searchParams.get("status")
 </script>
 
 <div class="page-container">
   <div class="modal-form">
     <h1>Request an instructor account.</h1>
-    <form method="POST">
+    <form method="POST" action="/api/request">
       <div class="input-wrap">
         <input 
           type="text" 
           name="name"
           placeholder="Your Name" 
-          required 
-          bind:value={payload.name}
+          required
         >
         <span></span>
       </div>
@@ -34,7 +22,6 @@
           name="email" 
           placeholder="Your Email" 
           required 
-          bind:value={payload.email}
         >
         <span></span>
       </div>
@@ -43,8 +30,7 @@
           type="text" 
           name="institution" 
           placeholder="Your Institution" 
-          required 
-          bind:value={payload.institution}
+          required
         >
         <span></span>
       </div>
@@ -53,8 +39,7 @@
         <select 
           name="role" 
           placeholder="Your job title" 
-          required 
-          bind:value={payload.role}
+          required
         >
           <option value="Adjunct Faculty">Adjunct Faculty</option>
           <option value="Assistant Professor">Assistant Professor</option>
@@ -63,12 +48,13 @@
         <span></span>
       </div>
 
-        <input 
-          type="submit"
-          value="Request"
-          on:click|preventDefault={() => {}}
-        >
-      
+      {#if status === 'success'}
+        <input type="submit" value="Request Sent!">
+      {:else if status === 'error'}
+        <input type="submit" value="Error, please try again.">
+      {:else}
+        <input type="submit" value="Request">
+      {/if}
     </form>
     <a class="tiny-text" href="/login">Already have an account? Login here.</a>
   </div>

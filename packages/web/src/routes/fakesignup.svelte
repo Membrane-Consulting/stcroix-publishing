@@ -1,12 +1,20 @@
 <script lang=ts>
   import Seo from '$lib/components/Seo.svelte'
-  import { login } from "$lib/authClient"
+  import { client } from "$lib/authClient"
   import { session } from "$app/stores"
   import { goto } from "$app/navigation"
   import { browser } from "$app/env"
 
   const seoData={
     title: 'Instructor Login',
+  }
+
+  const signUp = async (email, password) => {
+    try {
+      const { user, session, error } = await client.auth.signUp({ email, password })
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   let email
@@ -21,7 +29,6 @@
 
 <div class="page-container">
   <div class="modal-form">
-    <h1>Login to your account.</h1>
     <form method="POST">
       <div class="input-wrap">
         <input 
@@ -47,7 +54,7 @@
         <input 
           type="submit" 
           value="Login"
-          on:click|preventDefault={() => login(email, pass)}
+          on:click|preventDefault={() => signUp(email, pass)}
         >
     </form>
     <a class="tiny-text" href="/request">Request an instructor account</a>
