@@ -14,7 +14,9 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "asset-source-unsplash",
-    "media-library"
+    "media-library",
+    "@sanity/dashboard",
+    "create-user"
   ],
   "env": {
     "development": {
@@ -35,6 +37,10 @@
     {
       "name": "part:@sanity/base/initial-value-templates",
       "path": "./initialValueTemplates.js"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboardConfig.js"
     }
   ]
 }

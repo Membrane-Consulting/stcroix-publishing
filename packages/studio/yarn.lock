@@ -1038,6 +1038,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.0.tgz#6734f8ebc106a0860dff7f92bf90df193f0935d7"
   integrity sha512-zrsUxjLOKAzdewIDRWy9nsV1GQsKBCWaGwsZQlCgr6/q+vjyZhFgqedLfFBuI9anTPEUT4APq9Mu0SZBTzIcGQ==
 
+"@popperjs/core@^2.11.2":
+  version "2.11.2"
+  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.2.tgz#830beaec4b4091a9e9398ac50f865ddea52186b9"
+  integrity sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==
+
 "@reach/auto-id@^0.13.2":
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.13.2.tgz#6c7fe7142285707b0f38b2f556f32accb467df32"
@@ -1252,6 +1257,18 @@
     postcss-value-parser "^3.3.0"
     source-list-map "^2.0.0"
 
+"@sanity/dashboard@^2.24.1":
+  version "2.24.1"
+  resolved "https://registry.npmjs.org/@sanity/dashboard/-/dashboard-2.24.1.tgz#d73936f81610908204ee8055964b046177035d6e"
+  integrity sha512-ihAPyXhBQQ3kxHL1CnJMoAIXAMOTFKVlw/Biurhp5OtnzgW3BEQyNsONty+odOtaEsHf6LNEDK6ibdea8m9Pew==
+  dependencies:
+    "@sanity/icons" "^1.2.1"
+    "@sanity/image-url" "^1.0.1"
+    "@sanity/types" "2.24.0"
+    "@sanity/ui" "^0.37.2"
+    lodash "^4.17.15"
+    rxjs "^6.5.3"
+
 "@sanity/data-aspects@2.18.0":
   version "2.18.0"
   resolved "https://registry.yarnpkg.com/@sanity/data-aspects/-/data-aspects-2.18.0.tgz#b6f4b63b31f6f778debc2e8e64b327af7f85f4f2"
@@ -1418,6 +1435,11 @@
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-1.2.2.tgz#6fe5cb74cf75757aee864ea13c2740329046b615"
   integrity sha512-lhA6f/K5r8ajL8PrrCftJe6ry/6VGSD1JZSwZiEodVZgkuZOZLs1mU8E0LXUXEyj8QRlvKpifv2xRbY7rWimQg==
+
+"@sanity/icons@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.npmjs.org/@sanity/icons/-/icons-1.2.3.tgz#58b1f3c0d2a8bb13731c5d91ca96461c29bc5cd9"
+  integrity sha512-yp/o9Kd/4gEncihLrly/PNXo77Z6+xHkEZP4K2/C+PJ7/dXR7Nyy4Lj729tR/0SQKA/Rc8WEapGQCPmWVBvHOQ==
 
 "@sanity/image-url@^1.0.1":
   version "1.0.1"
@@ -1648,6 +1670,17 @@
     react "17.0.1"
     rxjs "^6.5.3"
 
+"@sanity/types@2.24.0":
+  version "2.24.0"
+  resolved "https://registry.npmjs.org/@sanity/types/-/types-2.24.0.tgz#f1bdcff9d8d73bfb7a718cab89e9b275206f13e2"
+  integrity sha512-EuInJrMI7lSfpPqjFVvVop+ycwLLDmaHARvlQW7/qMtjtj0RNu5OnsrvIt233MbmIPb5S5d9kBtrN8N05MkWfw==
+  dependencies:
+    "@sanity/client" "2.23.2"
+    "@sanity/color" "^2.1.5"
+    "@types/react" "^17.0.0"
+    react "17.0.1"
+    rxjs "^6.5.3"
+
 "@sanity/ui@^0.36.10", "@sanity/ui@^0.36.12", "@sanity/ui@^0.36.17":
   version "0.36.17"
   resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-0.36.17.tgz#2c7674e0d28da0bc2daa605c6dc2b194e5eb23d5"
@@ -1659,6 +1692,23 @@
     "@sanity/color" "^2.1.6"
     "@sanity/icons" "^1.2.2"
     framer-motion "5.3.3"
+    lodash "^4.17.21"
+    popper-max-size-modifier "^0.2.0"
+    react-is "^17.0.2"
+    react-popper "^2.2.5"
+    react-refractor "^2.1.5"
+
+"@sanity/ui@^0.37.2":
+  version "0.37.2"
+  resolved "https://registry.npmjs.org/@sanity/ui/-/ui-0.37.2.tgz#f58c518d14f0e741c707642a91144d95ca456ebb"
+  integrity sha512-WVPR06HCP325OjPuiAanXLFoSSdJrOV6/zEs9w7UuSH5ov0zOP2qWFGOxOu2aeZexpQCS73SFTb8+UXOOlRp0Q==
+  dependencies:
+    "@juggle/resize-observer" "^3.3.1"
+    "@popperjs/core" "^2.11.2"
+    "@reach/auto-id" "^0.16.0"
+    "@sanity/color" "^2.1.6"
+    "@sanity/icons" "^1.2.3"
+    framer-motion "5.5.5"
     lodash "^4.17.21"
     popper-max-size-modifier "^0.2.0"
     react-is "^17.0.2"
@@ -1755,6 +1805,45 @@
     "@sanity/resolver" "2.23.2"
     "@sanity/util" "2.23.2"
     loader-utils "1.1.0"
+
+"@supabase/gotrue-js@^1.21.7":
+  version "1.21.7"
+  resolved "https://registry.yarnpkg.com/@supabase/gotrue-js/-/gotrue-js-1.21.7.tgz#ec3fdf2199a28fb65c1ae94a3c10032536c0aa4e"
+  integrity sha512-YnL4cO3Q+ugatWEtgCEnLt+Wwi0VpOVTPSSjSSUho2x3cH7+juRBTrVbYky/W6YVgAw/ZJrVUFPh/NcUCUhdmw==
+  dependencies:
+    cross-fetch "^3.0.6"
+
+"@supabase/postgrest-js@^0.35.0":
+  version "0.35.1"
+  resolved "https://registry.yarnpkg.com/@supabase/postgrest-js/-/postgrest-js-0.35.1.tgz#5d0b3f7fd5ec5b1269269ca302bc8bce1aa16435"
+  integrity sha512-N9IOxwgKvek2HqVrC3Usr6hUWvzy53vebsoqLqUBaelu8StATTrhdqaw+9IKthQsn8qoB9A0XD2vN39SGlgd/A==
+  dependencies:
+    cross-fetch "^3.0.6"
+
+"@supabase/realtime-js@^1.3.5":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@supabase/realtime-js/-/realtime-js-1.3.5.tgz#6ade8a97ae4c600bbe8b7615fd987e2bd956c582"
+  integrity sha512-If+C0A6eT1BflFOOZNlnGw/91gNuj7f/M19/WutsPM0pjhx++8Dj0YH8z+tbgxX0nf/2UGVUMMgTBckzpk9R3g==
+  dependencies:
+    "@types/websocket" "^1.0.3"
+    websocket "^1.0.34"
+
+"@supabase/storage-js@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@supabase/storage-js/-/storage-js-1.5.0.tgz#5a8390e3102eaab80d394e1734b0ba6c52a3c2cc"
+  integrity sha512-ki2HT9FrCYRN3yoqWqX+u47TUHQ8lgSStAqV/97kMov1z2d+iIlqGBGVcaGDqq4NvK8CipG8IJARYM72oX+afA==
+  dependencies:
+    cross-fetch "^3.1.0"
+
+"@supabase/supabase-js@^1.29.2":
+  version "1.29.2"
+  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-1.29.2.tgz#04e3ddfcb676a4f1f1f972255c7aff276bc8fffd"
+  integrity sha512-zyURfsWxGeuVQd4QfqeSyzhpplYIQznL92mATcb8uUjnoXRC+oDiVQ3Ak5mtFJlPPT1tRwEWTr5o9fr0AncOcg==
+  dependencies:
+    "@supabase/gotrue-js" "^1.21.7"
+    "@supabase/postgrest-js" "^0.35.0"
+    "@supabase/realtime-js" "^1.3.5"
+    "@supabase/storage-js" "^1.5.0"
 
 "@types/diff-match-patch@^1.0.32":
   version "1.0.32"
@@ -1854,6 +1943,13 @@
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/warning/-/warning-3.0.0.tgz#0d2501268ad8f9962b740d387c4654f5f8e23e52"
   integrity sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=
+
+"@types/websocket@^1.0.3":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@types/websocket/-/websocket-1.0.4.tgz#1dc497280d8049a5450854dd698ee7e6ea9e60b8"
+  integrity sha512-qn1LkcFEKK8RPp459jkjzsfpbsx36BBt3oC3pITYtkoBw/aVX+EZFa5j3ThCRTNpLFvIMr5dSTD4RaMdilIOpA==
+  dependencies:
+    "@types/node" "*"
 
 abab@^2.0.0:
   version "2.0.5"
@@ -2582,6 +2678,13 @@ buffer@^5.5.0:
     base64-js "^1.3.1"
     ieee754 "^1.1.13"
 
+bufferutil@^4.0.1:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/bufferutil/-/bufferutil-4.0.6.tgz#ebd6c67c7922a0e902f053e5d8be5ec850e48433"
+  integrity sha512-jduaYOYtnio4aIAyc6UbvPCVcgq7nYpVnucyxr6eCYg/Woad9Hf/oxxBRDnGGjPfjUm6j5O/uBWhIu4iLebFaw==
+  dependencies:
+    node-gyp-build "^4.3.0"
+
 builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
@@ -3172,7 +3275,7 @@ create-react-class@^15.6.0:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-cross-fetch@^3.0.4:
+cross-fetch@^3.0.4, cross-fetch@^3.0.6, cross-fetch@^3.1.0:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.4.tgz#9723f3a3a247bf8b89039f3a380a9244e8fa2f39"
   integrity sha512-1eAtFWdIubi6T4XPy6ei9iUFoKpUkIF971QLN8lIvvvwueI65+Nw5haMNKUwfJxabqlIIDODJKGrQ66gxC0PbQ==
@@ -3492,6 +3595,11 @@ debounce@1.0.0:
   integrity sha1-CUivUT0uTOQHkW+FBqQj0/nPctg=
   dependencies:
     date-now "1.0.1"
+
+debounce@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/debounce/-/debounce-1.2.1.tgz#38881d8f4166a5c5848020c11827b834bcb3e0a5"
+  integrity sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==
 
 debug@2, debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8:
   version "2.6.9"
@@ -4419,6 +4527,21 @@ framer-motion@5.3.3:
   optionalDependencies:
     "@emotion/is-prop-valid" "^0.8.2"
 
+framer-motion@5.5.5:
+  version "5.5.5"
+  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-5.5.5.tgz#2cc9345e720ec1b93189ee76423799c72a3224b4"
+  integrity sha512-+LPAF5ddo02qKh+MK4h1ChwqUFvrLkK1NDWwrHy+MuCVmQDGgiFNHvwqOSklTDGkEtbio3dCOEDy23+ZyNAa9g==
+  dependencies:
+    framesync "6.0.1"
+    hey-listen "^1.0.8"
+    popmotion "11.0.3"
+    react-merge-refs "^1.1.0"
+    react-use-measure "^2.1.1"
+    style-value-types "5.0.0"
+    tslib "^2.1.0"
+  optionalDependencies:
+    "@emotion/is-prop-valid" "^0.8.2"
+
 framesync@6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/framesync/-/framesync-6.0.1.tgz#5e32fc01f1c42b39c654c35b16440e07a25d6f20"
@@ -4522,7 +4645,7 @@ get-intrinsic@^1.0.2, get-intrinsic@^1.1.0, get-intrinsic@^1.1.1:
     has "^1.0.3"
     has-symbols "^1.0.1"
 
-get-it@^5.2.1:
+get-it@^5.0.3, get-it@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/get-it/-/get-it-5.2.1.tgz#89cd98d73afd787aa4f2c89409f5893d17991e0c"
   integrity sha512-KDR5lTKmxKd/XyP3egZ8ieIdKLxKrQPKUFxk86MSoytGjxX4STigaFuwtFGmGx/lBPc1YSpi9wyuQJ5uP8WcRA==
@@ -6209,6 +6332,11 @@ node-fetch@2.6.1:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
+node-gyp-build@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.3.0.tgz#9f256b03e5826150be39c764bf51e993946d71a3"
+  integrity sha512-iWjXZvmboq0ja1pUGULQBexmxq8CV4xBhX7VDOTbL7ZR4FOowwY/VOtRxBN/yKxmdGoIp4j5ysNT4u3S2pDQ3Q==
+
 node-libs-browser@^2.0.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/node-libs-browser/-/node-libs-browser-2.2.1.tgz#b64f513d18338625f90346d27b0d235e631f6425"
@@ -6809,6 +6937,16 @@ popmotion@11.0.0:
   integrity sha512-kJDyaG00TtcANP5JZ51od+DCqopxBm2a/Txh3Usu23L9qntjY5wumvcVf578N8qXEHR1a+jx9XCv8zOntdYalQ==
   dependencies:
     framesync "^6.0.1"
+    hey-listen "^1.0.8"
+    style-value-types "5.0.0"
+    tslib "^2.1.0"
+
+popmotion@11.0.3:
+  version "11.0.3"
+  resolved "https://registry.npmjs.org/popmotion/-/popmotion-11.0.3.tgz#565c5f6590bbcddab7a33a074bb2ba97e24b0cc9"
+  integrity sha512-Y55FLdj3UxkR7Vl3s7Qr4e9m0onSnP8W7d/xQLsoJM40vs6UKHFdygs6SWryasTZYqugMjm3BepCF4CWXDiHgA==
+  dependencies:
+    framesync "6.0.1"
     hey-listen "^1.0.8"
     style-value-types "5.0.0"
     tslib "^2.1.0"
@@ -7864,6 +8002,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-merge-refs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
+  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
+
 react-photo-gallery@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/react-photo-gallery/-/react-photo-gallery-8.0.0.tgz#04ff9f902a2342660e63e6817b4f010488db02b8"
@@ -7940,6 +8083,13 @@ react-textarea-autosize@^8.3.2:
     "@babel/runtime" "^7.10.2"
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
+
+react-use-measure@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/react-use-measure/-/react-use-measure-2.1.1.tgz#5824537f4ee01c9469c45d5f7a8446177c6cc4ba"
+  integrity sha512-nocZhN26cproIiIduswYpV5y5lQpSQS1y/4KuvUCjSKmw7ZWIS/+g3aFnX3WdBkyuGUtTLif3UTqnLLhbDoQig==
+  dependencies:
+    debounce "^1.2.1"
 
 react@17.0.1:
   version "17.0.1"
@@ -9549,6 +9699,13 @@ user-home@^2.0.0:
   dependencies:
     os-homedir "^1.0.0"
 
+utf-8-validate@^5.0.2:
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/utf-8-validate/-/utf-8-validate-5.0.8.tgz#4a735a61661dbb1c59a0868c397d2fe263f14e58"
+  integrity sha512-k4dW/Qja1BYDl2qD4tOMB9PFVha/UJtxTc1cXYOe3WwA/2m0Yn4qB7wLMpJyLJ/7DR0XnTut3HsCSzDT4ZvKgA==
+  dependencies:
+    node-gyp-build "^4.3.0"
+
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
@@ -9728,6 +9885,18 @@ webpack@^3.8.1:
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
 
+websocket@^1.0.34:
+  version "1.0.34"
+  resolved "https://registry.yarnpkg.com/websocket/-/websocket-1.0.34.tgz#2bdc2602c08bf2c82253b730655c0ef7dcab3111"
+  integrity sha512-PRDso2sGwF6kM75QykIesBijKSVceR6jL2G8NGYyq2XrItNC2P5/qL5XeR056GhA+Ly7JMFvJb9I312mJfmqnQ==
+  dependencies:
+    bufferutil "^4.0.1"
+    debug "^2.2.0"
+    es5-ext "^0.10.50"
+    typedarray-to-buffer "^3.1.5"
+    utf-8-validate "^5.0.2"
+    yaeti "^0.0.6"
+
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/whatwg-encoding/-/whatwg-encoding-1.0.5.tgz#5abacf777c32166a51d085d6b4f3e7d27113ddb0"
@@ -9874,6 +10043,11 @@ y18n@^5.0.5:
   version "5.0.8"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-5.0.8.tgz#7f4934d0f7ca8c56f95314939ddcd2dd91ce1d55"
   integrity sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==
+
+yaeti@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/yaeti/-/yaeti-0.0.6.tgz#f26f484d72684cf42bedfb76970aa1608fbf9577"
+  integrity sha1-8m9ITXJoTPQr7ft2lwqhYI+/lXc=
 
 yallist@^2.1.2:
   version "2.1.2"
