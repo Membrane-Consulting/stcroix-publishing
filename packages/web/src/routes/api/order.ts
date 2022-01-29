@@ -19,7 +19,7 @@ export async function post({ request }){
 
   const submittedAt = new Date().toISOString()
   const customerName = body.get("name")
-  const slugName = customerName.replace(" ", "-").toLowercase()
+  const slugName = customerName.replace(" ", "-").toLowerCase()
   const customerEmail = body.get("email")
 
   const filename = `purchase-order-${slugName}-${submittedAt}`
@@ -33,8 +33,6 @@ export async function post({ request }){
     submittedAt,
   }
 
-  // console.log(doc)
-
   try {
     const res = await sanityAuthClient
       .create(doc)
@@ -42,7 +40,7 @@ export async function post({ request }){
         console.log(`Document Created! ID: ${res._id}`)
       
         sanityAuthClient.assets
-          .upload('file', file, {
+          .upload('file', Buffer.from(file), {
             filename: filename
           })
           .then(asset => {

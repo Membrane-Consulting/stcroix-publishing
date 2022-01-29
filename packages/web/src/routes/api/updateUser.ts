@@ -4,7 +4,8 @@ import { login } from "$lib/authClient"
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 
-export async function post({ body }) {
+export async function post({ request }) {
+  const body = await request.formData()
   const email = body.get("email")
   const password = body.get("password")
   
