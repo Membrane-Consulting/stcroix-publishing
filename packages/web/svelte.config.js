@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-vercel'
+import adapter from '@sveltejs/adapter-netlify';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -14,17 +14,17 @@ const config = {
 		target: '#svelte',
 		adapter: adapter(),
 		vite: {
-      plugins: [
-        (function LoadSecrets() {
-          return {
-            name: 'load-secrets',
-            configureServer: async () => {
-              ;(await import('dotenv')).config()
-            }
-          }
-        })()
-      ]
-	  }
+			plugins: [
+				(function LoadSecrets() {
+					return {
+						name: 'load-secrets',
+						configureServer: async () => {
+							(await import('dotenv')).config();
+						}
+					};
+				})()
+			]
+		}
 	}
 };
 
