@@ -8,7 +8,7 @@
   const params = new URLSearchParams(`?${hash.slice(1)}`)
 
   if (params.get('type') != 'recovery') {
-    console.log('do a goto')
+    goto('/')
   }
 
   const token = params.get('access_token')
