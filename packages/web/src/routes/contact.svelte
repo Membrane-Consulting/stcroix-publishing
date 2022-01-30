@@ -1,9 +1,6 @@
 <script lang=ts context=module>
   import buildUrl from '$lib/utils/buildUrl';
 
-  // Pre-render
-  export const prerender = true;
-
   /**
    * @type {import('@sveltejs/kit').Load}
    */
@@ -11,20 +8,21 @@
     const query = `*[_type=='contactPage'][0]`
     const res = await fetch(buildUrl(url, query));
 
-  if (res.ok) {
-    return {
-      props: {
-        data: await res.json()
-      }
-    };
-  }
+    if (res.ok) {
+      return {
+        props: {
+          data: await res.json()
+        }
+      };
+    }
 
-  return {
-    status: res.status,
-      error: new Error(`Could not load url`)
-    };
+    return {
+      status: res.status,
+        error: new Error(`Could not load url`)
+      };
   }
 </script>
+
 <script lang=ts>
   import Seo from '$lib/components/Seo.svelte'
   import SanityImage from '$lib/components/SanityImage.svelte'
