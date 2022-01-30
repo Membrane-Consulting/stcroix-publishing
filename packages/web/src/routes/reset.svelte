@@ -1,17 +1,11 @@
 <script lang=ts>
-  // import { resetToken } from '$lib/stores/reset'
+  import { resetToken } from '$lib/stores/reset'
   import { updateUser } from '$lib/authClient'
   import { goto } from '$app/navigation';
-  import { page } from '$app/stores';
 
-  const hash = $page.url.hash || '#';
-  const params = new URLSearchParams(`?${hash.slice(1)}`)
-
-  if (params.get('type') != 'recovery') {
+  if (!$resetToken) {
     goto('/')
   }
-
-  const token = params.get('access_token')
 
   let password;
   let working;
@@ -22,7 +16,7 @@
     working = true;
 
     try {
-      await updateUser(password, token);
+      await updateUser(password, $resetToken);
       goto('/login');
     }
     catch (e) {
