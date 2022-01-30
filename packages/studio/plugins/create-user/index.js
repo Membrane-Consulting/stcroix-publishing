@@ -13,7 +13,7 @@ const configKeys = [{
 function CreateUser() {
   const [showSettings, setShowSettings] = useState(false);
   const [creatingUser, setCreatingUser] = useState(false);
-  const [email, setEmail] = useState(undefined);
+  const [email, setEmail] = useState('');
   const [error, setError] = useState(null);
 
   const namespace = "create-user-plugin";
@@ -87,7 +87,7 @@ function CreateUser() {
           <TextInput
             fontSize={[2, 2, 3, 4]}
             onChange={(event) =>
-              setEmail(event.currentTarget.email)
+              setEmail(event.currentTarget.value)
             }
             padding={[3, 3, 4]}
             placeholder="Email Address"
