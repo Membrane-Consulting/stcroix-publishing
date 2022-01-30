@@ -21,14 +21,19 @@ function CreateUser() {
 
   const toast = useToast();
 
+  console.log(1, process.env.SANITY_ACTIVE_ENV, process.env.NODE_ENV)
+
   const createUser = async () => {
     const supabase = createClient('https://qiisuqsjiwfgceujuhgc.supabase.co', secrets.supabaseSecret);
+
+    const devMode = process.env.NODE_ENV == 'development';
+    const url = devMode ? 'http://localhost:3000' : 'https://stcroixpublishing.com';
 
     setCreatingUser(true)
 
     try {
       await supabase.auth.api
-        .inviteUserByEmail(email);
+        .inviteUserByEmail(email, { redirectTo: `${url}/invite` });
 
       toast.push({
         status: 'success',
