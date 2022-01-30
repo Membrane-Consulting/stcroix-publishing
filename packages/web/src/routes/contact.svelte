@@ -1,12 +1,12 @@
 <script lang=ts context=module>
-  import buildUrl from '$lib/utils/buildUrl';
+  import buildUrl from '$lib/utils/sanity';
 
   /**
    * @type {import('@sveltejs/kit').Load}
    */
   export async function load({ url, fetch, session, context }) {
     const query = `*[_type=='contactPage'][0]`
-    const res = await fetch(buildUrl(url, query));
+    const res = await fetch(buildUrl(query));
 
     if (res.ok) {
       return {

@@ -1,5 +1,5 @@
 <script lang=ts context=module>
-  import buildUrl from '$lib/utils/buildUrl'
+  import buildUrl from '$lib/utils/sanity'
 
   // Pre-render
   export const prerender = true;
@@ -9,7 +9,7 @@
    */
   export async function load({ url, fetch, session, context }) {
     const query = `*[_type == 'settings'][0]{termsOfService, _updatedAt}`;
-    const res = await fetch(buildUrl(url, query));
+    const res = await fetch(buildUrl(query));
 
   if (res.ok) {
     return {
