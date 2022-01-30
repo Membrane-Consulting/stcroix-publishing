@@ -31,7 +31,7 @@ function CreateUser() {
 
     try {
       await supabase.auth.api
-        .inviteUserByEmail(email, { redirectTo: `${url}/invite` });
+        .inviteUserByEmail(email, { redirectTo: url });
 
       toast.push({
         status: 'success',
