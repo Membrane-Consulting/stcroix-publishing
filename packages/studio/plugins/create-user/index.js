@@ -1,42 +1,49 @@
-import React, { useEffect, useState } from "react";
-import getIt from "get-it";
-import jsonResponse from "get-it/lib/middleware/jsonResponse";
-import promise from "get-it/lib/middleware/promise";
-import { DashboardWidget } from "@sanity/dashboard";
 import { Button, Flex, Card, Code, Box, Stack, Text, TextInput, useToast } from "@sanity/ui";
+import { useSecrets, SettingsView } from 'sanity-secrets'
+import { DashboardWidget } from "@sanity/dashboard";
+import React, { useEffect, useState } from "react";
 
 import { createClient } from '@supabase/supabase-js'
 
-// Create a single supabase client for interacting with your database 
-const supabase = createClient('https://qiisuqsjiwfgceujuhgc.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNjkzNDc0MSwiZXhwIjoxOTUyNTEwNzQxfQ.cK-XBe4Gvj-ybq26AfQBJgIZG6vEkE02EPXsD6EP3oY')
-
-const request = getIt([promise(), jsonResponse()]);
+const configKeys = [{
+  key: 'supabaseSecret',
+  title: 'Supabase secret API Key'
+}]
 
 function CreateUser() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [creatingUser, setCreatingUser] = useState(false);
+  const [email, setEmail] = useState(undefined);
   const [error, setError] = useState(null);
-  const [value, setValue] = useState(undefined);
-  
+
+  const namespace = "create-user-plugin";
+  const { secrets } = useSecrets(namespace);
+
   const toast = useToast();
 
   const createUser = async () => {
-    setIsLoading(true);
+    const supabase = createClient('https://qiisuqsjiwfgceujuhgc.supabase.co', secrets.supabaseSecret);
+
+    setCreatingUser(true)
+
     try {
-      const { data: user, error } = await supabase.auth.api
-        .inviteUserByEmail(value);
+      await supabase.auth.api
+        .inviteUserByEmail(email);
+
       toast.push({
         status: 'success',
         title: 'User created!'
       })
-      setIsLoading(false); 
     } catch (e) {
       toast.push({
         status: 'error',
         title: 'Error while creating user!'
       })
+      
       console.error(e)
-      setIsLoading(false);
     }
+
+    setCreatingUser(false);
   };
 
   return (
@@ -44,6 +51,14 @@ function CreateUser() {
         header="Invite a User"
         footer={
           <Flex direction="column" align="stretch">
+            <Button
+              flex={1}
+              text="Update Secret"
+              paddingY={3}
+              paddingX={1}
+              style={{ margin: "8px" }}
+              onClick={() => setShowSettings(true)}/>
+
             <Button
               flex={1}
               paddingX={2}
@@ -54,10 +69,13 @@ function CreateUser() {
               type="submit"
               justify="center"
               onClick={() => createUser()}
+              disabled={creatingUser}
             />
           </Flex>
         }
       >
+
+      {showSettings && <SettingsView namespace={namespace} keys={configKeys} onClose={() => setShowSettings(false) } />}
         
       {error && (
         <Card paddingX={3} paddingY={4} tone="critical">
@@ -69,11 +87,11 @@ function CreateUser() {
           <TextInput
             fontSize={[2, 2, 3, 4]}
             onChange={(event) =>
-              setValue(event.currentTarget.value)
+              setEmail(event.currentTarget.email)
             }
             padding={[3, 3, 4]}
             placeholder="Email Address"
-            value={value}
+            value={email}
           />
         </Box>
       )}
