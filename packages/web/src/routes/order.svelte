@@ -1,9 +1,6 @@
 <script lang=ts context=module>
    import buildUrl from '$lib/utils/buildUrl';
 
-  // Pre-render
-  export const prerender = true;
-
   /**
    * @type {import('@sveltejs/kit').Load}
    */
