@@ -8,7 +8,7 @@ import { Button, Flex, Card, Code, Box, Stack, Text, TextInput, useToast } from 
 import { createClient } from '@supabase/supabase-js'
 
 // Create a single supabase client for interacting with your database 
-const supabase = createClient('https://qiisuqsjiwfgceujuhgc.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNjkzNDc0MSwiZXhwIjoxOTUyNTEwNzQxfQ.cK-XBe4Gvj-ybq26AfQBJgIZG6vEkE02EPXsD6EP3oY')
+const supabase = createClient('https://qiisuqsjiwfgceujuhgc.supabase.co', process.env.SANITY_STUDIO_SUPABASE_SECRET)
 
 const request = getIt([promise(), jsonResponse()]);
 
