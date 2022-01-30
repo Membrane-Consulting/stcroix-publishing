@@ -1,6 +1,7 @@
 import { updateUser } from "$lib/authClient";
 import { resetToken } from "$lib/stores/reset";
 import { login } from "$lib/authClient"
+import { get } from 'svelte/store';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 
@@ -9,8 +10,7 @@ export async function post({ request }) {
   const email = body.get("email")
   const password = body.get("password")
   
-  let token
-  resetToken.subscribe(value => token = value)
+  let token = get(resetToken)
 
   try {
     if (token){
