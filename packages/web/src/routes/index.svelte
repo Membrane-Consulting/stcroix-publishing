@@ -1,12 +1,12 @@
 <script lang=ts context=module>
-  import buildUrl from '$lib/utils/buildUrl'
+  import buildUrl from '$lib/utils/sanity'
   import { homePageQuery } from '$lib/utils/queries';
   /**
    * @type {import('@sveltejs/kit').Load}
   */
   export async function load({ url, fetch }) {
     const query = homePageQuery;
-    const res = await fetch(buildUrl(url, query));
+    const res = await fetch(buildUrl(query));
 
     if (res.ok) {
       return {

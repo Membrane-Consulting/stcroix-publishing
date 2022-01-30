@@ -1,5 +1,5 @@
 <script lang=ts context=module>
-  import buildUrl from '$lib/utils/buildUrl'
+  import buildUrl from '$lib/utils/sanity'
   
   // Pre-render
   export const prerender = true;
@@ -10,7 +10,7 @@
   export async function load({ url, params, fetch, session, context }) {
     const { slug } = params
     const query = `*[_type=="textbook" && slug.current=="${slug}"][0]{ title, subtitle, author, pubYear, exerpt, "pdfURL": pdf.asset->url}`;
-    const res = await fetch(buildUrl(url, query));
+    const res = await fetch(buildUrl(query));
   
   if (res.ok) {
     return {

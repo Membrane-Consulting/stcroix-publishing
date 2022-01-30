@@ -1,5 +1,5 @@
 <script lang=ts context=module>
-  import buildUrl from '$lib/utils/buildUrl';
+  import buildUrl from '$lib/utils/sanity';
   
   // Pre-render
   export const prerender = true;
@@ -9,9 +9,9 @@
   */
   export async function load({ url, fetch, session, context }) {
     const pageQuery = `*[_type == 'textsPage'][0]`;
-    const res = await fetch(buildUrl(url, pageQuery));
+    const res = await fetch(buildUrl(pageQuery));
     const itemsQuery = `*[_type == 'textbook']{title, subtitle, author, pubYear, exerpt, slug}`
-    const items = await fetch(buildUrl(url, itemsQuery))
+    const items = await fetch(buildUrl(itemsQuery))
   
   if (res.ok && items.ok) {
     return {

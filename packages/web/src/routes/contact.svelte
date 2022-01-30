@@ -1,30 +1,28 @@
 <script lang=ts context=module>
-  import buildUrl from '$lib/utils/buildUrl';
-
-  // Pre-render
-  export const prerender = true;
+  import buildUrl from '$lib/utils/sanity';
 
   /**
    * @type {import('@sveltejs/kit').Load}
    */
   export async function load({ url, fetch, session, context }) {
     const query = `*[_type=='contactPage'][0]`
-    const res = await fetch(buildUrl(url, query));
+    const res = await fetch(buildUrl(query));
 
-  if (res.ok) {
+    if (res.ok) {
+      return {
+        props: {
+          data: await res.json()
+        }
+      };
+    }
+
     return {
-      props: {
-        data: await res.json()
-      }
-    };
-  }
-
-  return {
-    status: res.status,
-      error: new Error(`Could not load url`)
-    };
+      status: res.status,
+        error: new Error(`Could not load url`)
+      };
   }
 </script>
+
 <script lang=ts>
   import Seo from '$lib/components/Seo.svelte'
   import SanityImage from '$lib/components/SanityImage.svelte'
