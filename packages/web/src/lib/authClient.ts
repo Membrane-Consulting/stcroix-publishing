@@ -37,6 +37,8 @@ export const forgot = async (email:string) => {
 export const updateUser = async (password:string, token:string) => {
   const { error, data } = await client.auth.api
       .updateUser(token, { password })
-      
-      console.log({data, error})
+
+  if (error) return Promise.reject(error);
+  
+  return Promise.resolve(data);
 }
