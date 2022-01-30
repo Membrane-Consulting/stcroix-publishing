@@ -21,8 +21,6 @@ function CreateUser() {
 
   const toast = useToast();
 
-  console.log(1, process.env.SANITY_ACTIVE_ENV, process.env.NODE_ENV)
-
   const createUser = async () => {
     const supabase = createClient('https://qiisuqsjiwfgceujuhgc.supabase.co', secrets.supabaseSecret);
 
