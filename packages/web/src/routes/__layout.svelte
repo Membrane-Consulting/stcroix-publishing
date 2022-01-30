@@ -1,33 +1,41 @@
 <script lang=ts>
 	import '../app.css'
+	import { inviteToken, inviteRefreshToken } from '$lib/stores/invite';
+	import { resetToken, resetRefreshToken } from '$lib/stores/reset';
 	import Favicon from '$lib/components/Favicon.svelte'
 	import Header from '$lib/components/Header.svelte'
 	import Footer from '$lib/components/Footer.svelte'
+	import { page, session } from '$app/stores'
 	import { client } from '$lib/authClient'
-	import { resetToken, resetRefreshToken } from '$lib/stores/reset';
-	import { inviteToken, inviteRefreshToken } from '$lib/stores/invite';
-  import { session } from '$app/stores'
-  import { browser } from '$app/env'
-	import { goto } from '$app/navigation'
+  	import { browser } from '$app/env'
+
+	$: if ($page.url.hash) {
+  		const params = new URLSearchParams(`?${$page.url.hash.slice(1)}`);
+		const type = params.get('type');
+
+		const token = params.get('access_token');
+		const refresh = params.get('refresh_token')
+
+		switch (type) {
+			case 'recovery':
+				$resetToken = token;
+				$resetRefreshToken = refresh;
+				break;
+
+			case 'invite':
+				$inviteToken = token;
+				$inviteRefreshToken = refresh;
+		}
+	}
 	
 	if(browser){
-		const hashType:string = new URLSearchParams(window.location.hash).get('type')
-		if (hashType === 'recovery'){
-			resetToken.set(new URLSearchParams(window.location.hash).get('access_token'))
-			resetRefreshToken.set(new URLSearchParams(window.location.hash).get('refresh_token'))
-			// goto('/reset')
-		} else if (hashType === 'invite') {
-			inviteToken.set(new URLSearchParams(window.location.hash).get('access_token'))
-			inviteRefreshToken.set(new URLSearchParams(window.location.hash).get('refresh_token'))
-			// goto('/invite')
-		}
+		$session = client.auth.session();
 
-    $session = client.auth.session()
-    client.auth.onAuthStateChange((event, s) => {
-      console.log(`AUTH_STATE_CHANGE: ${event}`)
-      $session = s
-    });
-  }
+		client.auth.onAuthStateChange((event, s) => {
+			console.log(`AUTH_STATE_CHANGE: ${event}`)
+			$session = s
+		});
+	}
 </script>
 
 <Favicon />
