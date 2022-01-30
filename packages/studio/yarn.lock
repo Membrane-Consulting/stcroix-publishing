@@ -8561,6 +8561,11 @@ sanity-plugin-media-library@^2.0.2:
     "@sanity/ui" "^0.36.10"
     styled-components "^5.3.1"
 
+sanity-secrets@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/sanity-secrets/-/sanity-secrets-0.0.6.tgz#acd477c496a4d03e69ed172887f9644dcf577c0d"
+  integrity sha512-NUUvFAR9ms23+q5d5sznCp8/Zg1NGAQ3gSi0ElFETwoIt6+gMKCM2CBQtK1PZkExeXeJlSqaNfQiVe3be77GXQ==
+
 sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
