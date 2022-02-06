@@ -30,13 +30,24 @@
   import PortableText from '@portabletext/svelte'
   import { siteTitle } from '$lib/utils/siteTitle'
   import { session } from '$app/stores'
-  import { onMount } from 'svelte'
   import { goto } from '$app/navigation'
   import { browser } from '$app/env'
 
   export let data
 
   let articleWidth
+
+  // Detect Browsers
+  let isFirefox:boolean
+  let isSafari:boolean
+  let isChrome:boolean
+
+  $: if(browser){
+    console.log(navigator.userAgent)
+    isFirefox = !!navigator.userAgent.includes('Firefox')
+    isSafari = !!navigator.userAgent.includes('Safari')
+    isChrome = !!navigator.userAgent.includes('Chrome')
+  }
 
   $: if(browser && !$session?.user){
       goto('/login')
@@ -46,7 +57,7 @@
 <svelte:head>
   <meta name="robots" content="noindex" />
   <meta name="AdsBot-Google" content="noindex" />
-  <title>{`${$siteTitle} | ${data.title}`}</title>
+  <title>{$siteTitle} | {data.title}</title>
 </svelte:head>
 
 {#if $session.user}
@@ -58,15 +69,23 @@
       <span>{data.pubYear}</span>
     </div>
     <PortableText blocks={data.exerpt}/>
-    <object
+    {#if !isChrome}
+      <p class="warn">It looks like you're using a {isFirefox? 'Firefox' : 'Safari'} browser - because PDF downloading cannot be disabled in {isFirefox? 'Firefox' : 'Safari'}, you can only view your instructor copy of this text in Chrome or Edge. We appreciate your understanding!</p>
+    {:else}
+      <iframe 
+        src={`${data.pdfURL}#toolbar=0&navpanes=0`} 
         id="myPDF" 
         title={data.title}
-        data={data.pdfURL} 
+        frameborder="0"
         type="application/pdf"
         width={articleWidth}
-        height="1000"
-      ></object>
+        height="1000px"
+        on:contextmenu={(e) => e.preventDefault()}
+      ></iframe>
+    {/if}
+    {#if isChrome}
       <span class="border"></span>
+    {/if}
   </article>
 {:else}
   <h1>not authenticated</h1>
@@ -80,7 +99,6 @@
     position: absolute;
     bottom: 0;
     left: 1.5rem;
-
   }
   article .meta {
     display: flex;
@@ -104,5 +122,12 @@
     --dropdown-btn-bg-color: #fff !important;
     --field-color: #000 !important;
     --field-bg-color: #fff !important;
+  }
+  .warn {
+    max-width: 700px;
+    margin: 2rem auto;
+    border: 2px solid red;
+    padding: 2rem;
+    border-radius: var(--radius);
   }
 </style>
