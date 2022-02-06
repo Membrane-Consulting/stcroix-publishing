@@ -25,16 +25,14 @@
 <script lang=ts>
   import { session } from '$app/stores'
   import PortableText from '@portabletext/svelte'
-  import { siteTitle } from '$lib/utils/siteTitle'
   import SanityImage from '$lib/components/SanityImage.svelte'
+  import Seo from '$lib/components/Seo.svelte'
   import type { HomePage } from '$lib/utils/types'
   
   export let data:HomePage
 </script>
 
-<svelte:head>
-  <title>{$siteTitle}</title>
-</svelte:head>
+<Seo />
 
 <section class="container">
   <div class="hero-img">
