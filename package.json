@@ -4,10 +4,15 @@
   "description": "A monorepo for St. Croix Publishing's custom tools",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm recursive run dev --filter \"@stcroixpub/*\"",
+    "dev": "pnpm recursive run dev --filter @stcroixpub/*",
+    "ui:dev": "pnpm recursive run dev --filter @stcroixpub/web",
+    "studio:dev": "pnpm recursive run dev --filter @stcroixpub/studio",
     "clean": "pnpm recursive exec -- rm -rf node_modules; rm package-lock.json; rm pnpm-lock.yaml;",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install:all": "pnpm recursive install"
+    "install:all": "pnpm recursive install",
+    "deploy": "pnpm recursive run deploy --filter @stcroixpub/*",
+    "studio:deploy": "pnpm recursive run deploy --filter @stcroixpub/studio",
+    "ui:deploy": "pnpm recursive run deploy --filter @stcroixpub/web"
   },
   "repository": {
     "type": "git",

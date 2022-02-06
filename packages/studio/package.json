@@ -10,7 +10,8 @@
     "dev": "sanity start",
     "start": "sanity start",
     "build": "sanity build",
-    "install": "sanity install"
+    "install": "sanity install",
+    "deploy": "sanity deploy"
   },
   "keywords": [
     "sanity"
