@@ -21,6 +21,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
     import purchaseOrderPage from './documents/webpages/purchaseOrderPage'
     // Texts
     import textbook from './documents/textBook'
+    // Purchase Orders
+    import purchaseOrder from './documents/purchase-orders/purchaseOrder'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -35,6 +37,7 @@ export default createSchema({
     chapter,
     // Documents
     settings,
+    purchaseOrder,
       // Webpages
       homePage,
       aboutPage,

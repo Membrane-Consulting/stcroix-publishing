@@ -15,8 +15,22 @@ export default {
       type: 'string',
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96
+      }
+    },
+    {
       name: 'pubYear',
       title: 'Publication Year',
+      type: 'string',
+    },
+    {
+      name: 'author',
+      title: 'Author(s)',
       type: 'string',
     },
     {

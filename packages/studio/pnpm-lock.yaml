@@ -1,21 +1,24 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@sanity/base': ^2.21.10
+  '@reach/auto-id': ^0.16.0
+  '@sanity/base': ^2.22.0
   '@sanity/components': ^2.14.0
-  '@sanity/core': ^2.21.11
-  '@sanity/default-layout': ^2.21.10
-  '@sanity/default-login': ^2.21.10
-  '@sanity/desk-tool': ^2.21.10
-  '@sanity/vision': ^2.21.10
+  '@sanity/core': ^2.22.0
+  '@sanity/default-layout': ^2.22.0
+  '@sanity/default-login': ^2.22.0
+  '@sanity/desk-tool': ^2.22.0
+  '@sanity/vision': ^2.22.0
   prop-types: ^15.7
   react: ^17.0
   react-dom: ^17.0
   react-icons: ^4.3.1
   sanity-plugin-asset-source-unsplash: ^0.1.5
+  sanity-plugin-media-library: ^2.0.2
   styled-components: ^5.3.3
 
 dependencies:
+  '@reach/auto-id': 0.16.0_react-dom@17.0.2+react@17.0.2
   '@sanity/base': 2.22.3_625185cb104c53dd960b8025c62cc00a
   '@sanity/components': 2.14.0
   '@sanity/core': 2.22.3_react-dom@17.0.2+react@17.0.2
@@ -28,6 +31,7 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
   sanity-plugin-asset-source-unsplash: 0.1.5_1799d3ab0b0d40793e6774cd5d10d984
+  sanity-plugin-media-library: 2.0.2_ae4135346be0a3494c4b733b5891a711
   styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
 
 packages:
@@ -9687,6 +9691,23 @@ packages:
       react-infinite-scroll-component: 6.1.0_react@17.0.2
       react-photo-gallery: 8.0.0_react-dom@17.0.2+react@17.0.2
       styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
+    dev: false
+
+  /sanity-plugin-media-library/2.0.2_ae4135346be0a3494c4b733b5891a711:
+    resolution: {integrity: sha512-hPO9FuyZx3awG/rJ+ljs0pG0++4+IZWiAKm0Q/uQ4clCQK0JrhzDTizBhg+OWbh6XQoy+kgI/wRX9bPdxVE6PA==}
+    peerDependencies:
+      '@sanity/base': '>= 2.0.2'
+      '@sanity/form-builder': '>= 2.0.2'
+      react: '>= 16.9'
+    dependencies:
+      '@sanity/base': 2.22.3_625185cb104c53dd960b8025c62cc00a
+      '@sanity/icons': 1.2.1_react@17.0.2
+      '@sanity/ui': 0.36.15_7a082f7d10047d47195aea793f958a14
+      react: 17.0.2
+      styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
+    transitivePeerDependencies:
+      - react-dom
+      - react-is
     dev: false
 
   /sax/1.2.4:
