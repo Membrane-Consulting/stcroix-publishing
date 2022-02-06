@@ -90,7 +90,8 @@
   nav > ul {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 1rem;
     font-size: 1.2rem;
     font-weight: 700;
@@ -114,7 +115,7 @@
     }
   }
 
-  @media screen and (min-width: 500px){
+  @media screen and (min-width: 600px){
     header > * {
       margin: 0;
     }

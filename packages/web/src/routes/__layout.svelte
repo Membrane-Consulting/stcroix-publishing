@@ -10,7 +10,7 @@
   	import { browser } from '$app/env'
 
 	$: if ($page.url.hash) {
-  		const params = new URLSearchParams(`?${$page.url.hash.slice(1)}`);
+  	const params = new URLSearchParams(`?${$page.url.hash.slice(1)}`);
 		const type = params.get('type');
 
 		const token = params.get('access_token');
@@ -30,7 +30,7 @@
 	
 	if(browser){
 		$session = client.auth.session();
-
+		
 		client.auth.onAuthStateChange((event, s) => {
 			console.log(`AUTH_STATE_CHANGE: ${event}`)
 			$session = s

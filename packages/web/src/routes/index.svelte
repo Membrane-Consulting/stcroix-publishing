@@ -81,13 +81,13 @@
 <style>
   section {
     display: grid;
-    grid-template-columns: 1fr 400px 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: "img img _" "__ card card";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: "img" "card";
   }
 
   section:last-of-type {
-    grid-template-areas: "_ img img" "card card __";
+    grid-template-areas: "_" "img" "card";
   }
 
   .featured-title {
@@ -110,7 +110,7 @@
 
   article {
     grid-area: card;
-    margin-top: -40%;
+    margin-top: -20%;
   }
 
   .key-points {
@@ -124,5 +124,20 @@
     gap: 10px;
     align-items: center;
     font-size: 1rem;
+  }
+
+  @media screen and (min-width: 900px){
+    section {
+      grid-template-columns: 1fr 400px 1fr;
+      grid-template-areas: "img img _" "__ card card";
+    }
+
+    section:last-of-type {
+      grid-template-areas: "_ img img" "card card __";
+    }
+
+    article {
+      margin-top: -40%;
+    }
   }
 </style>
