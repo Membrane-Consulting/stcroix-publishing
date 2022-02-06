@@ -30,16 +30,14 @@
 </script>
 <script lang=ts>
   import PortableText from '@portabletext/svelte'
-  import Seo from '$lib/components/Seo.svelte'
+  // import Seo from '$lib/components/Seo.svelte'
   import { session } from '$app/stores'
   
   export let page
   export let items
-
-  // $:(console.log($session))
 </script>
 
-<Seo data={page.seo}/>
+<!-- <Seo data={page.seo}/> -->
 
 <section class="container-tight">
   <h1>{page.heading}</h1>

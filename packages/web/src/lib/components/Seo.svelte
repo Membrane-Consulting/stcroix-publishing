@@ -1,25 +1,27 @@
 <script lang=ts>
-  import { siteTitle } from '$lib/utils/siteTitle'
   import { urlFor } from '$lib/sanityClient'
   import type { Image } from '@sanity/types'
 
   type MetaData = {
-    title: string
+    title?: string
     description?: string
     image?: Image,
     url?: string
   }
 
-  export let data:MetaData
-
-  let fullTitle
-
-  $:(fullTitle = `${$siteTitle} | ${data.title}`) 
+  export let data:MetaData = {
+    title: ""
+  }
 </script>
 
 <svelte:head>
-  <title>{fullTitle}</title>
-  <meta property="og:title" content={fullTitle} />
+  {#if data.title}
+    <title>St. Croix Publishing | {data.title}</title>
+    <meta property="og:title" content="St. Croix Publishing | {data.title}" />
+  {:else}
+    <title>St. Croix Publishing</title>
+    <meta property="og:title" content="St. Croix Publishing" />
+  {/if}
   <meta property="og:type" content="website" />
   {#if data.url}
     <meta property="og:url" content={data.url} />
