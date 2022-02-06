@@ -453,26 +453,26 @@ button:focus, .button:focus {
 	text-align: center;
 }
 .container-full {
-	width: clamp(200px, 90vw, 70rem);
+	width: clamp(265px, 90vw, 70rem);
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 2rem;
 
 }
 .container-tight {
-	width: clamp(200px, 90vw, 50rem);
+	width: clamp(265px, 90vw, 50rem);
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
+	padding-left: clamp(0, calc(.5rem + 1vw), 1.5rem);
+	padding-right: clamp(0, calc(.5rem + 1vw), 1.5rem);
 	margin-bottom: 2rem;
 }
 .container {
-	width: clamp(200px, 90vw, 70rem);
+	width: clamp(265px, 90vw, 70rem);
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;	
+	padding-left: clamp(0, calc(.5rem + 1vw), 1.5rem);
+	padding-right: clamp(0, calc(.5rem + 1vw), 1.5rem);	
 	margin-bottom: 2rem;
 
 }
