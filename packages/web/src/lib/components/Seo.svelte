@@ -4,7 +4,7 @@
   import type { Image } from '@sanity/types'
 
   type MetaData = {
-    title: string
+    title?: string
     description?: string
     image?: Image,
     url?: string
@@ -14,12 +14,12 @@
 
   let fullTitle
 
-  $:(fullTitle = `${$siteTitle} | ${data.title}`) 
+  $:(fullTitle = `${$siteTitle || "St. Croix Publishgin"} | ${data.title}`) 
 </script>
 
 <svelte:head>
-  <title>{fullTitle}</title>
-  <meta property="og:title" content={fullTitle} />
+  <title>{fullTitle || "St. Croix Publishing"}</title>
+  <meta property="og:title" content="St. Croix Publishing" />
   <meta property="og:type" content="website" />
   {#if data.url}
     <meta property="og:url" content={data.url} />
