@@ -5,7 +5,7 @@
 <footer class="container-full">
   <ul>
     <li><a sveltekit:prefetch href='/publications'>Texts</a></li>
-    <li><a sveltekit:prefetch href='/order'>Order</a></li>
+    <!-- <li><a sveltekit:prefetch href='/order'>Order</a></li> -->
     <li><a sveltekit:prefetch href='/about'>About</a></li>
     <li><a sveltekit:prefetch href='/contact'>Contact</a></li>
   </ul>
