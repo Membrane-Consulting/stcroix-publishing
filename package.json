@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "pnpm recursive run dev --filter \"@stcroixpub/*\"",
     "clean": "pnpm recursive exec -- rm -rf node_modules; rm package-lock.json; rm pnpm-lock.yaml;",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install:all": "pnpm recursive install"
   },
   "repository": {
     "type": "git",
