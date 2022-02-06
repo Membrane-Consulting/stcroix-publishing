@@ -28,7 +28,6 @@
 </script>
 <script lang=ts>
   import PortableText from '@portabletext/svelte'
-  import { siteTitle } from '$lib/utils/siteTitle'
   import { session } from '$app/stores'
   import { goto } from '$app/navigation'
   import { browser } from '$app/env'
@@ -57,7 +56,6 @@
 <svelte:head>
   <meta name="robots" content="noindex" />
   <meta name="AdsBot-Google" content="noindex" />
-  <title>{$siteTitle} | {data.title}</title>
 </svelte:head>
 
 {#if $session.user}

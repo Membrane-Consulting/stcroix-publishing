@@ -7,7 +7,7 @@
 	import Footer from '$lib/components/Footer.svelte'
 	import { page, session } from '$app/stores'
 	import { client } from '$lib/authClient'
-  	import { browser } from '$app/env'
+  import { browser } from '$app/env'
 
 	$: if ($page.url.hash) {
   	const params = new URLSearchParams(`?${$page.url.hash.slice(1)}`);
