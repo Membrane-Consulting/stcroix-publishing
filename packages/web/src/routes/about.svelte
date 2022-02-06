@@ -28,12 +28,12 @@
 <script lang=ts>
   import PortableText from '@portabletext/svelte'
   import ImageBlock from '$lib/components/ImageBlock.svelte'
-  import Seo from '$lib/components/Seo.svelte'
+  // import Seo from '$lib/components/Seo.svelte'
   
   export let data
 </script>
 
-  <Seo data={data.seo}/>
+  <!-- <Seo data={data.seo}/> -->
 
   <section class="container-tight">
     <h1>{data.heading}</h1>

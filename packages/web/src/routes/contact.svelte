@@ -24,7 +24,7 @@
 </script>
 
 <script lang=ts>
-  import Seo from '$lib/components/Seo.svelte'
+  // import Seo from '$lib/components/Seo.svelte'
   import SanityImage from '$lib/components/SanityImage.svelte'
   import { page } from '$app/stores'
 
@@ -33,7 +33,7 @@
   export let data
 </script>
 
-<Seo data={data.seo}/>
+<!-- <Seo data={data.seo}/> -->
 
 <section class="page-container">
   <SanityImage image={data.image} style={'max-width:500px; border-radius: 40px;'}/>

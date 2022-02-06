@@ -1,5 +1,5 @@
 <script lang=ts>
-  import Seo from '$lib/components/Seo.svelte'
+  // import Seo from '$lib/components/Seo.svelte'
   import { login } from "$lib/authClient"
   import { session } from "$app/stores"
   import { goto } from "$app/navigation"
@@ -17,7 +17,7 @@
   }
 </script>
 
-<Seo data={seoData}/>
+<!-- <Seo data={seoData}/> -->
 
 <div class="page-container">
   <div class="modal-form">

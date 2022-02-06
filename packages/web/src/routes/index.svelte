@@ -26,13 +26,13 @@
   import { session } from '$app/stores'
   import PortableText from '@portabletext/svelte'
   import SanityImage from '$lib/components/SanityImage.svelte'
-  import Seo from '$lib/components/Seo.svelte'
+  // import Seo from '$lib/components/Seo.svelte'
   import type { HomePage } from '$lib/utils/types'
   
   export let data:HomePage
 </script>
 
-<Seo />
+<!-- <Seo /> -->
 
 <section class="container">
   <div class="hero-img">
