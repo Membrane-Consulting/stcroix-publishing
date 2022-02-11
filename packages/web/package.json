@@ -4,7 +4,7 @@
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
-		"preview": "svelte-kit preview",
+		"preview": "HOST=0.0.0.0 svelte-kit preview --host",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
@@ -15,8 +15,7 @@
 		"@portabletext/svelte": "^0.2.0",
 		"@sanity/types": "^2.24.0",
 		"@supabase/supabase-js": "^1.29.4",
-		"@sveltejs/adapter-netlify": "^1.0.0-next.37",
-		"@sveltejs/adapter-static": "^1.0.0-next.28",
+		"@sveltejs/adapter-node": "^1.0.0-next.68",
 		"@sveltejs/kit": "^1.0.0-next.251",
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
 		"@typescript-eslint/parser": "^4.33.0",
@@ -43,6 +42,9 @@
 		"@sanity/image-url": "^1.0.1",
 		"@sendgrid/mail": "^7.6.0",
 		"dotenv": "^10.0.0",
-		"yup": "^0.32.11" 
-	}
+		"yup": "^0.32.11"
+	},
+	"engines": {
+    "node": "16.13.1"
+  }
 }
