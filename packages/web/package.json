@@ -15,6 +15,7 @@
 		"@portabletext/svelte": "^0.2.0",
 		"@sanity/types": "^2.24.0",
 		"@supabase/supabase-js": "^1.29.4",
+		"@sveltejs/adapter-cloudflare": "^1.0.0-next.9",
 		"@sveltejs/adapter-netlify": "next",
 		"@sveltejs/kit": "^1.0.0-next.251",
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
