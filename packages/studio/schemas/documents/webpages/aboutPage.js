@@ -7,11 +7,13 @@ export default {
       name: 'heading',
       title: 'Page Heading',
       type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'textContent',
       title: 'Text Content',
       type: 'portableText',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'seo',

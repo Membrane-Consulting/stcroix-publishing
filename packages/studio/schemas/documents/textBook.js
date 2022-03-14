@@ -18,6 +18,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      validation: Rule => Rule.required(),
       options: {
         source: 'title',
         maxLength: 96
@@ -27,6 +28,7 @@ export default {
       name: 'pubYear',
       title: 'Publication Year',
       type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'author',
@@ -46,11 +48,5 @@ export default {
       type: 'file',
       validation: Rule => Rule.required(),
     },
-    // {
-    //   name: 'chapters',
-    //   title: 'Chapters',
-    //   type: 'array',
-    //   of: [{type: 'chapter'}]
-    // },
   ],
 }
