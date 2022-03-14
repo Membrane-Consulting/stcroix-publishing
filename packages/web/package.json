@@ -42,9 +42,10 @@
 		"@sanity/image-url": "^1.0.1",
 		"@sendgrid/mail": "^7.6.0",
 		"dotenv": "^10.0.0",
+		"svelte-seo": "^1.4.0",
 		"yup": "^0.32.11"
 	},
 	"engines": {
-    "node": "16.13.1"
-  }
+		"node": "16.13.1"
+	}
 }

@@ -420,6 +420,9 @@ select[name="role"] ~ span:before {
 	justify-content: center;
  }
 
+svg, text {
+	font-family: 'Cabin', sans-serif;
+}
 
 
 /* Utility Classes */
