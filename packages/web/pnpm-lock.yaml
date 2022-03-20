@@ -25,7 +25,6 @@ specifiers:
   svelte: ^3.46.3
   svelte-check: ^2.3.0
   svelte-preprocess: ^4.10.2
-  svelte-seo: ^1.4.0
   tailwindcss: ^2.2.19
   tslib: ^2.3.1
   typescript: ^4.5.5
@@ -36,7 +35,6 @@ dependencies:
   '@sanity/image-url': 1.0.1
   '@sendgrid/mail': 7.6.0
   dotenv: 10.0.0
-  svelte-seo: 1.4.0_typescript@4.5.5
   yup: 0.32.11
 
 devDependencies:
@@ -2664,14 +2662,6 @@ packages:
       rimraf: 2.7.1
     dev: true
 
-  /schema-dts/0.8.3_typescript@4.5.5:
-    resolution: {integrity: sha512-GSLeVkUgEe8DzS8/FGWou1wlC8tQ1KXA5amCqCIH/psUzF74fWswtT0QFlSoJLT08CYyixnc3S/lkAm+RExoLQ==}
-    peerDependencies:
-      typescript: '>=3.4.0'
-    dependencies:
-      typescript: 4.5.5
-    dev: false
-
   /semver/7.3.5:
     resolution: {integrity: sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==}
     engines: {node: '>=10'}
@@ -2907,14 +2897,6 @@ packages:
       svelte: 3.46.3
       typescript: 4.5.5
     dev: true
-
-  /svelte-seo/1.4.0_typescript@4.5.5:
-    resolution: {integrity: sha512-44kvY3+t8QBjjQPlKIXXRSgp+XzV0OBO4qLs0T3nx7lzgxVzmDI1G+nAgrSYXMbmZAZmmvZGpZpbUBTJckM0Lw==}
-    dependencies:
-      schema-dts: 0.8.3_typescript@4.5.5
-    transitivePeerDependencies:
-      - typescript
-    dev: false
 
   /svelte/3.46.3:
     resolution: {integrity: sha512-mTOXvv74CVQqJHqoIZDprVfRKVVmYNadXP0VKnOEA54223kLGCr1nMrifS4Zx29qMt/xRB38Eq1D7dDH/fM8fQ==}
