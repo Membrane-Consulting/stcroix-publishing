@@ -35,6 +35,8 @@
 	$: pagePathname = url.pathname.replace('/', '')
 	$: pageTitle = capitalize(pagePathname)
 
+	if ($page.url.pathname === '/') pageTitle = 'Home'
+
 	$: if ($page.url.hash) {
   	const params = new URLSearchParams(`?${$page.url.hash.slice(1)}`);
 		const type = params.get('type');
@@ -64,24 +66,22 @@
 	}
 </script>
 
-<SvelteSeo 
-  title={`${siteTitle} | ${pageTitle}`}
-  description={globalSeo.description}
-  openGraph={{
-    title: `${siteTitle} | ${globalSeo.title}`,
-    description: globalSeo.description,
-    url: `https://www.stcroixpublishing.com${url.pathname}`,
-    type: 'website',
-    images: [
-      {
-        url: urlFor(globalSeo.image).width(850).height(650).url(),
-        width: 850,
-        height: 650,
-        alt: 'St. Croix Publishing'
-      }
-     ]
-  }}
-/>
+<svelte:head>
+	<title>{`${siteTitle} | ${pageTitle}`}</title>
+	<meta name="robots" content="index,follow">
+	<meta name="googlebot" content="index,follow">
+	<meta name="description" content="{globalSeo.description}">
+
+	<meta property="og:title" content="{`${siteTitle} | ${pageTitle}`}">
+  <meta property="og:description" content="{globalSeo.description}">
+  <meta property="og:url" content="https://www.stcroixpublishing.com{url.pathname}">
+  <meta property="og:type" content="website">
+
+  <meta property="og:image" content="{urlFor(globalSeo.image).width(850).height(650).url()}">
+  <meta property="og:image:alt" content="St. Croix Publishing">
+  <meta property="og:image:width" content="850">
+  <meta property="og:image:height" content="650">
+</svelte:head>
 
 <Favicon />
 <Header />

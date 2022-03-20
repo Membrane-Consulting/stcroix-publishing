@@ -61,15 +61,14 @@
 {#if $session.user}
   <article class="container-tight" bind:clientWidth={articleWidth}>
     <h1>{data.title}</h1>
-    <h2>{data.subtitle}</h2>
+    {#if data.subtitle}
+      <h2>{data.subtitle}</h2>
+    {/if}
     <div class="meta">
       <span>{data.author}</span>
       <span>{data.pubYear}</span>
     </div>
     <PortableText blocks={data.exerpt}/>
-    {#if !isChrome}
-      <p class="warn">It looks like you're using a {isFirefox? 'Firefox' : 'Safari'} browser - because PDF downloading cannot be disabled in {isFirefox? 'Firefox' : 'Safari'}, you can only view your instructor copy of this text in Chrome or Edge. We appreciate your understanding!</p>
-    {:else}
       <iframe 
         src={`${data.pdfURL}#toolbar=0&navpanes=0`} 
         id="myPDF" 
@@ -80,10 +79,6 @@
         height="1000px"
         on:contextmenu={(e) => e.preventDefault()}
       ></iframe>
-    {/if}
-    {#if isChrome}
-      <span class="border"></span>
-    {/if}
   </article>
 {:else}
   <h1>not authenticated</h1>
@@ -91,13 +86,6 @@
 
 <style>
   article { position: relative; }
-  .border {
-    width: calc(100% - 3rem);
-    border-bottom: 5px solid var(--black);
-    position: absolute;
-    bottom: 0;
-    left: 1.5rem;
-  }
   article .meta {
     display: flex;
     align-items: center;
