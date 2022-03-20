@@ -26,7 +26,6 @@
   import { session } from '$app/stores'
   import PortableText from '@portabletext/svelte'
   import SanityImage from '$lib/components/SanityImage.svelte'
-  import SvelteSeo from 'svelte-seo'
   import type { HomePage } from '$lib/utils/types'
   
   export let data:HomePage

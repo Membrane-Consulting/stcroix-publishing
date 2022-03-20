@@ -109,11 +109,4 @@
     --field-color: #000 !important;
     --field-bg-color: #fff !important;
   }
-  .warn {
-    max-width: 700px;
-    margin: 2rem auto;
-    border: 2px solid red;
-    padding: 2rem;
-    border-radius: var(--radius);
-  }
 </style>

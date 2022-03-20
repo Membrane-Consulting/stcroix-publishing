@@ -16,7 +16,6 @@
 	import '../app.css'
 	import { inviteToken, inviteRefreshToken } from '$lib/stores/invite';
 	import { resetToken, resetRefreshToken } from '$lib/stores/reset';
-	import SvelteSeo from 'svelte-seo'
 	import Favicon from '$lib/components/Favicon.svelte'
 	import Header from '$lib/components/Header.svelte'
 	import Footer from '$lib/components/Footer.svelte'
