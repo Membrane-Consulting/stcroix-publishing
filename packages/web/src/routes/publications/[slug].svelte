@@ -1,8 +1,5 @@
 <script lang=ts context=module>
   import buildUrl from '$lib/utils/sanity'
-  
-  // Pre-render
-  export const prerender = true;
 
   /**
     * @type {import('@sveltejs/kit').Load}
