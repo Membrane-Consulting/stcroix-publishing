@@ -33,18 +33,6 @@
 
   let articleWidth
 
-  // Detect Browsers
-  let isFirefox:boolean
-  let isSafari:boolean
-  let isChrome:boolean
-
-  $: if(browser){
-    console.log(navigator.userAgent)
-    isFirefox = !!navigator.userAgent.includes('Firefox')
-    isSafari = !!navigator.userAgent.includes('Safari')
-    isChrome = !!navigator.userAgent.includes('Chrome')
-  }
-
   $: if(browser && !$session?.user){
       goto('/login')
   }

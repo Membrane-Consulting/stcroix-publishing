@@ -27,14 +27,11 @@
 </script>
 <script lang=ts>
   import PortableText from '@portabletext/svelte'
-  // import Seo from '$lib/components/Seo.svelte'
   import { session } from '$app/stores'
   
   export let page
   export let items
 </script>
-
-<!-- <Seo data={page.seo}/> -->
 
 <section class="container-tight">
   <h1>{page.heading}</h1>
@@ -42,7 +39,9 @@
   {#each items as i}
     <article class="modal-card">
       <h2>{i.title}</h2>
-      <h3>{i.subtitle}</h3>
+      {#if i.subtitle}
+        <h3>{i.subtitle}</h3>
+      {/if}
       <div class="meta">
         <span>{i.author}</span>
         <span>{i.pubYear}</span>
