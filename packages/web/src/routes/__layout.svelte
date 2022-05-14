@@ -28,13 +28,11 @@
 
 	const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1)
 
-	$:console.log({'data': data.globalSeo, 'url': url})
-
 	$:({ globalSeo, siteTitle } = data)
 	$: pagePathname = url.pathname.replace('/', '')
 	$: pageTitle = capitalize(pagePathname)
 
-	if ($page.url.pathname === '/') pageTitle = 'Home'
+	$: if ($page.url.pathname === '/') pageTitle = 'Home'
 
 	$: if ($page.url.hash) {
   	const params = new URLSearchParams(`?${$page.url.hash.slice(1)}`);
