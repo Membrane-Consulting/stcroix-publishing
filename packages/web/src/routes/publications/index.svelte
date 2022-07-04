@@ -27,6 +27,7 @@
 </script>
 <script lang=ts>
   import PortableText from '@portabletext/svelte'
+  import Link from '$lib/components/Link.svelte'
   import { session } from '$app/stores'
   
   export let page
@@ -35,7 +36,7 @@
 
 <section class="container-tight">
   <h1>{page.heading}</h1>
-  <PortableText blocks={page.textContent}/>
+  <PortableText blocks={page.textContent} serializers={{ marks:{ link: Link } }}/>
   {#each items as i}
     <article class="modal-card">
       <h2>{i.title}</h2>
